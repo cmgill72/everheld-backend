@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: everheld-prayer-backend
+    runtime: node
+    plan: starter
+    rootDir: Backend
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: EVERHELD_CLIENT_TOKEN
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: MAX_DAILY_REQUESTS
+        value: '30'
